@@ -1,12 +1,27 @@
 # Finish the implementation of the Car class so it has the functionality described below
 
 class Car
+  attr_accessor :make, :model
+  @@all = []
 
+  def initialize (make:, model:)
+    @make = make
+    @model = model
+    @@all << self
+  end
 
+  def drive
+    puts "VROOOOOOOOOOOOM!"
+  end
+
+  def self.all
+    @@all
+  end
 
 end
 
-car = Car.new("volvo", "lightening")
+# car1 = Car.new("volvo", "lightening")
+car = Car.new(make: "volvo", model: "lightening")
 car.make
 #=> "volvo"
 car.model
@@ -18,11 +33,11 @@ car.drive
 Car.all
 #=> [car1, car2, car3]
 
-BONUS:
+# BONUS:
 
-Car.new(make: "volvo", model: "lightening")
 
-car.make
+
+car1.make
 #=> "volvo"
-car.model
+car1.model
 #=> "ligthening"
